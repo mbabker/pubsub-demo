@@ -83,6 +83,9 @@
     "fig/link-util": {
         "version": "1.0.0"
     },
+    "gos/pubsub-router-bundle": {
+        "version": "v0.3.5"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
