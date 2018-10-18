@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "652a63fa7225255d8748dcab8b88dac4",
+    "content-hash": "1399e7c64bcce115f376a8bca862ae45",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1283,39 +1283,46 @@
         },
         {
             "name": "gos/pubsub-router-bundle",
-            "version": "v0.3.5",
+            "version": "dev-refactor",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GeniusesOfSymfony/PubSubRouterBundle.git",
-                "reference": "a3f9666455dc42f38a7ce31ca2fc55bd27421ea0"
+                "url": "https://github.com/mbabker/PubSubRouterBundle.git",
+                "reference": "f6af08bf7fa5bf22bf4c54fc87b931e8683c50c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GeniusesOfSymfony/PubSubRouterBundle/zipball/a3f9666455dc42f38a7ce31ca2fc55bd27421ea0",
-                "reference": "a3f9666455dc42f38a7ce31ca2fc55bd27421ea0",
+                "url": "https://api.github.com/repos/mbabker/PubSubRouterBundle/zipball/f6af08bf7fa5bf22bf4c54fc87b931e8683c50c3",
+                "reference": "f6af08bf7fa5bf22bf4c54fc87b931e8683c50c3",
                 "shasum": ""
             },
             "require": {
-                "doctrine/cache": "~1.4",
-                "php": ">=5.5",
+                "php": ">=7.1",
+                "symfony/config": "~3.4|~4.0",
                 "symfony/console": "~3.4|~4.0",
-                "symfony/framework-bundle": "~3.4|~4.0"
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/framework-bundle": "~3.4|~4.0",
+                "symfony/http-foundation": "~3.4|~4.0",
+                "symfony/http-kernel": "~3.4|~4.0",
+                "symfony/yaml": "~3.4|~4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35"
+                "matthiasnoback/symfony-dependency-injection-test": "^2.0",
+                "phpunit/phpunit": "^6.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.3.x-dev"
+                    "dev-master": "0.4.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Gos\\Bundle\\PubSubRouterBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1328,14 +1335,17 @@
             "description": "Symfony PubSub Router Bundle",
             "homepage": "https://github.com/GeniusesOfSymfony/PubSubRouterBundle",
             "keywords": [
+                "Bundle",
+                "PubSub",
                 "PubSub Bundle",
+                "Redis",
                 "WAMP",
-                "bundle",
-                "pubsub",
-                "redis",
-                "zmq"
+                "ZMQ"
             ],
-            "time": "2018-10-04T17:09:23+00:00"
+            "support": {
+                "source": "https://github.com/mbabker/PubSubRouterBundle/tree/refactor"
+            },
+            "time": "2018-10-18T23:11:20+00:00"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -5946,7 +5956,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "gos/pubsub-router-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

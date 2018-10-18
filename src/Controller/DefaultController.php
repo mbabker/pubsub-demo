@@ -4,26 +4,23 @@ namespace App\Controller;
 
 use Gos\Bundle\PubSubRouterBundle\Request\PubSubRequest;
 use Gos\Bundle\PubSubRouterBundle\Router\Route;
-use Gos\Bundle\PubSubRouterBundle\Router\RouterInterface;
-use Psr\Container\ContainerInterface;
-use Symfony\Component\DependencyInjection\ServiceSubscriberInterface;
+use Gos\Bundle\PubSubRouterBundle\Router\RouterRegistry;
 
-class DefaultController implements ServiceSubscriberInterface
+class DefaultController
 {
     /**
-     * @var ContainerInterface
+     * @var RouterRegistry
      */
-    private $container;
+    private $registry;
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(RouterRegistry $registry)
     {
-        $this->container = $container;
+        $this->registry = $registry;
     }
 
     public function index()
     {
-        /** @var RouterInterface $router */
-        $router = $this->container->get('gos_pubsub_router.notification');
+        $router = $this->registry->getRouter('notification');
 
         $generatedRoute = $router->generate('user_notification', ['role' => 'admin', 'application' => 'pubsub-demo', 'user_ref' => 42]);
         dump($generatedRoute);
@@ -42,12 +39,5 @@ class DefaultController implements ServiceSubscriberInterface
         call_user_func($route->getCallback(), $request);
 
         die;
-    }
-
-    public static function getSubscribedServices()
-    {
-        return [
-            'gos_pubsub_router.notification' => RouterInterface::class,
-        ];
     }
 }

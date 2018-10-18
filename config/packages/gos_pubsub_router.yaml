@@ -1,7 +1,5 @@
 gos_pubsub_router:
     routers:
         notification:
-            context:
-                tokenSeparator: '/'
             resources:
                 - '%kernel.project_dir%/config/pubsub/notification.yaml'
