@@ -1,0 +1,13 @@
+user_notification:
+    channel: notification/user/{role}/{application}/{user_ref}
+    handler:
+        callback: ['App\Chat\MessageHandler', 'notifyUser']
+        args: [ 'redis', 'websocket' ]
+    requirements:
+        role:
+            pattern: 'editor|admin|client'
+        application:
+            pattern: '[a-z]+'
+        user_ref:
+            pattern: '\d+'
+            wildcard: true
